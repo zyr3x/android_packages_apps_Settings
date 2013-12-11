@@ -94,13 +94,13 @@ public class Memory extends SettingsPreferenceFragment {
 
         addPreferencesFromResource(R.xml.device_info_memory);
 
-        addCategory(StorageVolumePreferenceCategory.buildForInternal(context));
+        //addCategory(StorageVolumePreferenceCategory.buildForInternal(context));
 
         final StorageVolume[] storageVolumes = mStorageManager.getVolumeList();
         for (StorageVolume volume : storageVolumes) {
-            if (!volume.isEmulated()) {
+            //if (!volume.isEmulated()) {
                 addCategory(StorageVolumePreferenceCategory.buildForPhysical(context, volume));
-            }
+            //}
         }
 
         setHasOptionsMenu(true);
