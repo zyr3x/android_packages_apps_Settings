@@ -19,11 +19,8 @@ package com.android.settings.bluetooth;
 import android.bluetooth.BluetoothA2dp;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothHeadset;
-import android.bluetooth.BluetoothMap;
 import android.bluetooth.BluetoothInputDevice;
 import android.bluetooth.BluetoothPan;
-import android.bluetooth.BluetoothSap;
-import android.bluetooth.BluetoothDun;
 import android.bluetooth.BluetoothPbap;
 import android.bluetooth.BluetoothProfile;
 import android.bluetooth.BluetoothUuid;
@@ -87,9 +84,6 @@ final class LocalBluetoothProfileManager {
     private final HidProfile mHidProfile;
     private OppProfile mOppProfile;
     private final PanProfile mPanProfile;
-    private SapServerProfile mSapProfile;
-    private DunServerProfile mDunProfile;
-    private final PbapServerProfile mPbapProfile;
 
     /**
      * Mapping from profile name, e.g. "HEADSET" to profile object.
@@ -126,30 +120,7 @@ final class LocalBluetoothProfileManager {
         addPanProfile(mPanProfile, PanProfile.NAME,
                 BluetoothPan.ACTION_CONNECTION_STATE_CHANGED);
 
-        if(DEBUG) Log.d(TAG, "Adding local MAP profile");
-        mMapProfile = new MapProfile(mContext, mLocalAdapter,
-                mDeviceManager, this);
-        addProfile(mMapProfile, MapProfile.NAME,
-                BluetoothMap.ACTION_CONNECTION_STATE_CHANGED);
-        // enable SAP only if the property is set
-        if (SystemProperties.getBoolean("ro.bluetooth.sap", false) == true) {
-            mSapProfile = new SapServerProfile(context);
-            addProfile(mSapProfile, SapServerProfile.NAME,
-                    BluetoothSap.ACTION_CONNECTION_STATE_CHANGED);
-        }
-        // enable DUN only if the property is set
-        if (SystemProperties.getBoolean("ro.bluetooth.dun", false) == true) {
-            mDunProfile = new DunServerProfile(context);
-            addProfile(mDunProfile, DunServerProfile.NAME,
-                    BluetoothDun.ACTION_CONNECTION_STATE_CHANGED);
-        }
-
-
-       //Create PBAP server profile, but do not add it to list of profiles
-       // as we do not need to monitor the profile as part of profile list
-        mPbapProfile = new PbapServerProfile(context);
-
-        if (DEBUG) Log.d(TAG, "LocalBluetoothProfileManager construction complete");
+        Log.d(TAG, "LocalBluetoothProfileManager construction complete");
     }
 
     /**
@@ -323,11 +294,7 @@ final class LocalBluetoothProfileManager {
         return mHeadsetProfile;
     }
 
-    PbapServerProfile getPbapProfile(){
-        return mPbapProfile;
-    }
-
-    /**
+     /**
      * Fill in a list of LocalBluetoothProfile objects that are supported by
      * the local device and the remote device.
      *
@@ -339,7 +306,7 @@ final class LocalBluetoothProfileManager {
     synchronized void updateProfiles(ParcelUuid[] uuids, ParcelUuid[] localUuids,
             Collection<LocalBluetoothProfile> profiles,
             Collection<LocalBluetoothProfile> removedProfiles,
-            boolean isPanNapConnected, BluetoothDevice device) {
+            boolean isPanNapConnected) {
         // Copy previous profile list into removedProfiles
         removedProfiles.clear();
         removedProfiles.addAll(profiles);
@@ -371,8 +338,7 @@ final class LocalBluetoothProfileManager {
             removedProfiles.remove(mOppProfile);
         }
 
-        if ((BluetoothUuid.isUuidPresent(uuids, BluetoothUuid.Hid) ||
-             BluetoothUuid.isUuidPresent(uuids, BluetoothUuid.Hogp)) &&
+        if (BluetoothUuid.isUuidPresent(uuids, BluetoothUuid.Hid) &&
             mHidProfile != null) {
             profiles.add(mHidProfile);
             removedProfiles.remove(mHidProfile);
@@ -384,13 +350,6 @@ final class LocalBluetoothProfileManager {
             mPanProfile != null) || isPanNapConnected) {
             profiles.add(mPanProfile);
             removedProfiles.remove(mPanProfile);
-        }
-
-        if ((mMapProfile != null) &&
-            (mMapProfile.getConnectionStatus(device) == BluetoothProfile.STATE_CONNECTED)) {
-            profiles.add(mMapProfile);
-            removedProfiles.remove(mMapProfile);
-            mMapProfile.setPreferred(device, true);
         }
     }
 
