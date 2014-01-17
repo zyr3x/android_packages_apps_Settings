@@ -1764,6 +1764,8 @@
 
         <activity android:name=".cyanogenmod.LockscreenTargets" />
 
+        <activity android:name=".cyanogenmod.LockscreenButtons" />
+
         <activity android:name=".cyanogenmod.PerformanceSettings" />
 
         <activity android:name=".ApnEditor" />
@@ -1802,6 +1804,8 @@
             <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID"
                 android:resource="@id/security_settings" />
         </activity>
+
+        <activity android:name=".cyanogenmod.PrivacySettings" />
 
         <!-- CyanogenMod activities End -->
 
