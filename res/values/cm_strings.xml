@@ -217,16 +217,19 @@
     <string name="wake_when_plugged_or_unplugged_title">Wake on plug</string>
     <string name="wake_when_plugged_or_unplugged_summary">Turn the screen on when connecting or disconnecting the charger</string>
 
+    <!-- Lights settings screen, screen animation options -->
+    <string name="screen_animation_off_title">Screen-off animation</string>
+    <string name="screen_animation_style_title">Animation style</string>
+    <string name="screen_animation_style_electronbeam">Electron beam</string>
+    <string name="screen_animation_style_fade">Fade out</string>
+
     <!-- Notification light dialogs -->
     <string name="edit_light_settings">Edit light settings</string>
     <string name="pulse_speed_title">Pulse length and speed</string>
     <string name="default_time">Normal</string>
     <string name="custom_time">Custom</string>
-    <string name="dialog_test">Test</string>
     <string name="dialog_delete_title">Delete</string>
     <string name="dialog_delete_message">Remove selected item?</string>
-    <string name="dialog_test_message">Turn the screen off to see the selected notification in action or dismiss this dialog to stop the test</string>
-    <string name="dialog_test_button">Dismiss</string>
 
     <!-- Values for the notification light pulse spinners -->
     <string name="pulse_length_always_on">Always on</string>
@@ -705,6 +708,9 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="collapse_on_dismiss_never_summary">Leave open after removing notifications</string>
     <string name="collapse_on_dismiss_if_empty_summary">Close after removing the last notification</string>
     <string name="collapse_on_dismiss_if_no_clearable_summary">Close after removing the last removable notification</string>
+
+    <!-- tap-to-wake -->
+    <string name="double_tap_to_wake_title">Double-tap to wake</string>
 
     <!-- Quick access ribbon -->
     <string name="category_quick_access">Quick Access ribbon</string>
