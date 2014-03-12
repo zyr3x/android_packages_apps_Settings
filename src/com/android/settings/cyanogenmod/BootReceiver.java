@@ -151,7 +151,7 @@ public class BootReceiver extends BroadcastReceiver {
             return;
         }
 
-        String perfProfileProp = res.getString(R.string.config_perf_profile_prop);
+        /*String perfProfileProp = res.getString(R.string.config_perf_profile_prop);
         if (perfProfileProp == null) {
             Log.d(TAG, "Performance profiles are not supported by the device. Nothing to restore.");
         }
@@ -162,7 +162,7 @@ public class BootReceiver extends BroadcastReceiver {
         } else {
             SystemProperties.set(perfProfileProp, perfProfile);
             Log.d(TAG, "Performance profile settings restored.");
-        }
+        }*/
     }
 
     private void configureKSM(Context ctx) {
