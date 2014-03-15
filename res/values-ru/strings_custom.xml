@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/**
+ * Copyright (c) 2013, The Android Open Kang Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="performance_settings_title">Производительность</string>
+    <string name="performance_settings_warning_title">Соблюдайте осторожность</string>
+    <string name="performance_settings_warning">Эти настройки включены для экспериментов и любые внесённые изменения могут вызвать нестабильную работу, ошибки, потерю данных или аппаратные сбои.\n\nМы просим не слать баг-репорты, если вы что-то меняли в этих настройках.</string>
+    <string name="performance_set_on_boot">Выставлять при загрузке</string>
+    <string name="performance_set_on_boot_summary">Применять текущие настройки при перезагрузке</string>
+    <string name="processor_title">Процессор</string>
+    <string name="cpu_cur_freq_title">Текущая частота</string>
+    <string name="cpu_governors_title">Алгоритм смены частоты</string>
+    <string name="cpu_min_freq_title">Минимальная частота</string>
+    <string name="cpu_max_freq_title">Максимальная частота</string>
+    <string name="io_scheds_title">Планировщик I/O</string>
+    <string name="io_sched_title">Планировщик I/O</string>
+    <string name="perf_profile_title">Профиль</string>
+    <string name="memory_management_title">Управление памятью</string>
+    <string name="pref_ksm_title">Объединять страницы памяти ядра</string>
+    <string name="pref_ksm_summary">Позволяет снизить физические требования к памяти и увеличить производительность (требуется перезагрузка)</string>
+    <string name="pref_purgeable_assets_title">Разрешить сброс активов</string>
+    <string name="pref_purgeable_assets_summary">Позволяет освобождать больше памяти путём очистки активов графических элементов (требуется перезагрузка)</string>
+    <string name="pref_use_16bpp_alpha_title">16-битная прозрачность</string>
+    <string name="pref_use_16bpp_alpha_summary">Увеличенная производительность графической системы, но возможно снижение качества и появление визуальных артефактов (требуется перезагрузка)</string>
+    <string name="pref_force_highend_gfx_title">Высококачественная графика</string>
+    <string name="pref_force_highend_gfx_summary">Использовать эффекты, отключённые для устройств с низкой производительностью, например, прозрачность строки состояния и панели навигации (требуется перезагрузка)</string>
+</resources>
