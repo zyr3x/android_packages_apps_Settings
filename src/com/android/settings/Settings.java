@@ -102,6 +102,7 @@ import com.android.settings.profiles.ProfileEnabler;
 import com.android.settings.profiles.ProfilesSettings;
 import com.android.settings.tts.TextToSpeechSettings;
 import com.android.settings.users.UserSettings;
+import com.android.settings.voicewakeup.VoiceWakeupEnabler;
 import com.android.settings.vpn2.VpnSettings;
 import com.android.settings.wfd.WifiDisplaySettings;
 import com.android.settings.wifi.AdvancedWifiSettings;
@@ -136,6 +137,8 @@ public class Settings extends PreferenceActivity
 
     private static final String SAVE_KEY_CURRENT_HEADER = "com.android.settings.CURRENT_HEADER";
     private static final String SAVE_KEY_PARENT_HEADER = "com.android.settings.PARENT_HEADER";
+
+    private static final String VOICE_WAKEUP_PACKAGE_NAME = "com.cyanogenmod.voicewakeup";
 
     static final int DIALOG_ONLY_ONE_HOME = 1;
 
@@ -378,7 +381,8 @@ public class Settings extends PreferenceActivity
         PerformanceSettings.class.getName(),
         PolicyNativeFragment.class.getName(),
         com.android.settings.cyanogenmod.PrivacySettings.class.getName(),
-        com.android.settings.quicksettings.QuickSettingsTiles.class.getName()
+        com.android.settings.quicksettings.QuickSettingsTiles.class.getName(),
+        com.android.settings.cyanogenmod.QuietHours.class.getName()
     };
 
     @Override
@@ -663,6 +667,10 @@ public class Settings extends PreferenceActivity
             } else if (id == R.id.multi_sim_settings) {
                 if (!MSimTelephonyManager.getDefault().isMultiSimEnabled())
                     target.remove(header);
+            } else if (id == R.id.voice_wakeup_settings) {
+                if(!Utils.isPackageInstalled(this, VOICE_WAKEUP_PACKAGE_NAME)) {
+                    target.remove(header);
+                }
             }
 
             if (i < target.size() && target.get(i) == header
@@ -854,6 +862,7 @@ public class Settings extends PreferenceActivity
         private final BluetoothEnabler mBluetoothEnabler;
         private final ProfileEnabler mProfileEnabler;
         private final LocationEnabler mLocationEnabler;
+        private final VoiceWakeupEnabler mVoiceWakeupEnabler;
         private AuthenticatorHelper mAuthHelper;
         private DevicePolicyManager mDevicePolicyManager;
 
@@ -874,6 +883,7 @@ public class Settings extends PreferenceActivity
             } else if (header.id == R.id.wifi_settings
                     || header.id == R.id.bluetooth_settings
                     || header.id == R.id.profiles_settings
+                    || header.id == R.id.voice_wakeup_settings
                     || header.id == R.id.location_settings) {
                 return HEADER_TYPE_SWITCH;
             } else if (header.id == R.id.security_settings) {
@@ -922,6 +932,7 @@ public class Settings extends PreferenceActivity
             mBluetoothEnabler = new BluetoothEnabler(context, new Switch(context));
             mProfileEnabler = new ProfileEnabler(context, new Switch(context));
             mLocationEnabler = new LocationEnabler(context, new Switch(context));
+            mVoiceWakeupEnabler = new VoiceWakeupEnabler(context, new Switch(context));
             mDevicePolicyManager = dpm;
         }
 
@@ -997,6 +1008,8 @@ public class Settings extends PreferenceActivity
                         mProfileEnabler.setSwitch(holder.switch_);
                     } else if (header.id == R.id.location_settings) {
                         mLocationEnabler.setSwitch(holder.switch_);
+                    } else if (header.id == R.id.voice_wakeup_settings) {
+                        mVoiceWakeupEnabler.setSwitch(holder.switch_);
                     }
                     updateCommonHeaderView(header, holder);
                     break;
@@ -1072,6 +1085,7 @@ public class Settings extends PreferenceActivity
             mBluetoothEnabler.resume();
             mProfileEnabler.resume();
             mLocationEnabler.resume();
+            mVoiceWakeupEnabler.resume();
         }
 
         public void pause() {
@@ -1079,6 +1093,7 @@ public class Settings extends PreferenceActivity
             mBluetoothEnabler.pause();
             mProfileEnabler.pause();
             mLocationEnabler.pause();
+            mVoiceWakeupEnabler.pause();
         }
     }
 
@@ -1196,6 +1211,7 @@ public class Settings extends PreferenceActivity
     public static class AndroidBeamSettingsActivity extends Settings { /* empty */ }
     public static class WifiDisplaySettingsActivity extends Settings { /* empty */ }
     public static class ProfilesSettingsActivity extends Settings { /* empty */ }
+    public static class VoiceWakeupSettingsActivity extends Settings { /* empty */ }
     public static class DreamSettingsActivity extends Settings { /* empty */ }
     public static class NotificationStationActivity extends Settings { /* empty */ }
     public static class UserSettingsActivity extends Settings { /* empty */ }
@@ -1211,4 +1227,5 @@ public class Settings extends PreferenceActivity
     public static class BlacklistSettingsActivity extends Settings { /* empty */ }
     public static class SystemSettingsActivity extends Settings { /* empty */ }
     public static class QuickSettingsConfigActivity extends Settings { /* empty */ }
+    public static class QuietHoursSettingsActivity extends Settings { /* empty */ }
 }
