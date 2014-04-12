@@ -34,6 +34,7 @@ import android.text.TextUtils;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
+import com.android.settings.Utils;
 
 /**
  * Performance Settings
@@ -106,7 +107,7 @@ public class PerformanceSettings extends SettingsPreferenceFragment implements
         String use16bppAlpha = SystemProperties.get(USE_16BPP_ALPHA_PROP, "0");
         mUse16bppAlphaPref.setChecked("1".equals(use16bppAlpha));
 
-        if (!isPackageInstalled("com.cyanogenmod.settings.device.hwa"))
+        if (!Utils.isPackageInstalled(getActivity(), "com.cyanogenmod.settings.device.hwa"))
             prefSet.removePreference(findPreference(HWA_SETTINGS_KEY));
 
         if (ActivityManager.isLowRamDeviceStatic()) {
