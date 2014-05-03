@@ -214,5 +214,11 @@
     <string name="perf_profile_pwrsv">Power save</string>
     <string name="perf_profile_bal">Balanced</string>
     <string name="perf_profile_perf">Performance</string>
+    
+    <!--Notification category-->
+    <string name="notification_category">Notifications</string>
 
+    <!--Notification peek-->
+    <string name="notification_peek_title">Notification peek</string>
+    <string name="notification_peek_summary">Show latest notification after picking up your device</string>
 </resources>
