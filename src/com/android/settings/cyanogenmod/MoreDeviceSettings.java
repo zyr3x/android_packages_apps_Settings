@@ -16,13 +16,10 @@
 
 package com.android.settings.cyanogenmod;
 
-import android.content.ContentResolver;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.preference.PreferenceGroup;
-import android.preference.PreferenceScreen;
-import android.provider.Settings;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
@@ -45,7 +42,6 @@ public class MoreDeviceSettings extends SettingsPreferenceFragment {
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.more_device_settings);
-        ContentResolver resolver = getContentResolver();
 
         Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
         if (!VibratorIntensity.isSupported() || vibrator == null || !vibrator.hasVibrator()) {
@@ -68,5 +64,11 @@ public class MoreDeviceSettings extends SettingsPreferenceFragment {
 
         Utils.updatePreferenceToSpecificActivityFromMetaDataOrRemove(getActivity(),
                 getPreferenceScreen(), KEY_DEVICE_PARTS);
+    }
+
+    public static boolean hasItems() {
+        return DisplayColor.isSupported() ||
+               DisplayGamma.isSupported() ||
+               VibratorIntensity.isSupported();
     }
 }
