@@ -54,7 +54,7 @@ public class PrivacySettings extends SettingsPreferenceFragment {
             mBlacklist = null;
         }
 
-        addPreferencesFromResource(R.xml.security_settings_cyanogenmod);
+        //addPreferencesFromResource(R.xml.security_settings_cyanogenmod);
         // Logger
         // Only add if device has Logger installed
         if (Utils.isPackageInstalled(getActivity(), "com.cyngn.logger")) {

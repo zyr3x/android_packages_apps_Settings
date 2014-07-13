@@ -37,6 +37,7 @@ import android.text.TextUtils;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
+import com.android.settings.Utils;
 
 /**
  * Performance Settings
@@ -51,8 +52,8 @@ public class PerformanceSettings extends SettingsPreferenceFragment implements
 
     private static final String PERF_PROFILE_PREF = "pref_perf_profile";
     private static final String USE_16BPP_ALPHA_PREF = "pref_use_16bpp_alpha";
-
     private static final String USE_16BPP_ALPHA_PROP = "persist.sys.use_16bpp_alpha";
+    private static final String HWA_SETTINGS_KEY = "hwa_settings";
 
     private static final String FORCE_HIGHEND_GFX_PREF = "pref_force_highend_gfx";
     private static final String FORCE_HIGHEND_GFX_PERSIST_PROP = "persist.sys.force_highendgfx";
@@ -118,6 +119,9 @@ public class PerformanceSettings extends SettingsPreferenceFragment implements
         mUse16bppAlphaPref = (CheckBoxPreference) prefSet.findPreference(USE_16BPP_ALPHA_PREF);
         String use16bppAlpha = SystemProperties.get(USE_16BPP_ALPHA_PROP, "0");
         mUse16bppAlphaPref.setChecked("1".equals(use16bppAlpha));
+
+        if (!Utils.isPackageInstalled(getActivity(), "com.cyanogenmod.settings.device.hwa"))
+            category.removePreference(findPreference(HWA_SETTINGS_KEY));
 
         if (ActivityManager.isLowRamDeviceStatic()) {
             mForceHighEndGfx = (CheckBoxPreference) prefSet.findPreference(FORCE_HIGHEND_GFX_PREF);
