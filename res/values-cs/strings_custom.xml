@@ -77,6 +77,10 @@
   <string name="lockscreen_quick_unlock_control_title">Rychlé odemčení pomocí PINu</string>
   <string name="lockscreen_quick_unlock_control_summary">Odemknout zamčenou obrazovku pomocí hesla/pinu bez stisku tlačítka enter</string>
   <string name="device_hostname">Jméno zařízení</string>
+  <string name="nfc_polling_mode_title">Režim NFC</string>
+  <string name="nfc_polling_mode_screen_off">Vypnutá obrazovka</string>
+  <string name="nfc_polling_mode_screen_locked">Zapnutá obrazovka, uzamčeno</string>
+  <string name="nfc_polling_mode_screen_unlocked">Zapnutá obrazovka, odemčeno (výchozí)</string>
   <string name="wifi_menu_forget_all">Odstranit všechny sítě</string>
   <string name="data_usage_lengths_spinner_subtitle">Délka období:</string>
   <string name="checkbox_increasing_ring">Zapnout</string>
@@ -94,6 +98,8 @@
   <string name="wifi_setting_countrycode_title">Kód regionu Wi-Fi</string>
   <string name="wifi_setting_countrycode_summary">Nastavit regionální kód pro Wi-Fi</string>
   <string name="wifi_setting_countrycode_error">Při nastavování kódu regionu došlo k chybě.</string>
+  <string name="wifi_ssid_input_limit">SSID dosáhlo maximální délky</string>
+  <string name="p2p_device_name_input_limit">Jméno P2P dosáhlo maximální délky</string>
   <string name="live_volume_title">Živé kroky hlasitosti</string>
   <string name="volume_steps_60">60</string>
   <string name="volume_steps_45">45</string>
@@ -109,4 +115,37 @@
   <string name="volume_steps_system_title">Počet kroků: Systém</string>
   <string name="volume_steps_voice_call_title">Počet kroků: Hlasové hovory</string>
   <string name="bluetooth_accept_all_files">Přijmout všechny typy souborů</string>
+  <string name="lock_numpad_random_title">Změnit pořadí tlačítek s čísly pro PIN</string>
+  <string name="lock_numpad_random_dialog_title">Náhodné uspořádání tlačítek pro PIN</string>
+  <string name="lock_numpad_random_off">Vypnuto</string>
+  <string name="lock_numpad_random_always">Vždy</string>
+  <string name="lock_numpad_random_on_request">Při požadavku</string>
+  <string name="disable_fullscreen_keyboard_title">Vypnout klávesnici na celou obrazovku</string>
+  <string name="disable_fullscreen_keyboard_summary">Klávesnice v režimu na šířku nikdy nevyplní celou obrazovku</string>
+  <string name="blacklist_title">Černá listina</string>
+  <string name="blacklist_edit_dialog_title">Změnit položku černé listiny</string>
+  <string name="blacklist_prefs">Nastavení</string>
+  <string name="blacklist_button_delete">Smazat</string>
+  <string name="blacklist_empty_text">V seznamu černé listiny není žádné číslo. Položku je možné přidat pomocí tlačítka Přidat číslo (+).</string>
+  <string name="blacklist_disabled_empty_text">Pro zakázání komunikace z čísel na černé listině je potřeba černou listinu povolit.</string>
+  <string name="blacklist_summary_disabled">Zakázána</string>
+  <string name="blacklist_summary">Příchozí volání a zprávy z čísel na černé listině budou blokovány</string>
+  <string name="blacklist_notify">Zobrazit upozornění</string>
+  <string name="blacklist_private_numbers_title">Skrytá čísla</string>
+  <string name="blacklist_private_numbers_summary_disabled">Neblokovat volání ze skrytých čísel</string>
+  <string name="blacklist_private_numbers_summary">Blokovat příchozí <xliff:g id="type">%s</xliff:g> ze skrytých čísel</string>
+  <string name="blacklist_unknown_numbers_title">Neznámá čísla</string>
+  <string name="blacklist_unknown_numbers_summary_disabled">Neblokovat volání nebo zprávy z čísel, které nejsou v seznamu kontaktů</string>
+  <string name="blacklist_unknown_numbers_summary">Blokovat příchozí <xliff:g id="type">%s</xliff:g> z čísla, které není v seznamu kontaktů</string>
+  <string name="blacklist_summary_type_calls_only">volání</string>
+  <string name="blacklist_summary_type_messages_only">zprávy</string>
+  <string name="blacklist_summary_type_calls_and_messages">volání i zprávy</string>
+  <string name="blacklist_regex_title">Použít zástupné znaky</string>
+  <string name="blacklist_regex_summary">Použít znak . jako zástupný a znak * pro opakování. Např. 123.* blokuje všechna čísla začínající sekvencí 123 a .*123.* blokuje všechna čísla, obsahující sekvenci 123</string>
+  <string name="blacklist_policy_block_calls">Blokovat příchozí hovory</string>
+  <string name="blacklist_policy_block_messages">Blokovat příchozí zprávy</string>
+  <string name="add_blacklist_number">Přidat číslo</string>
+  <string name="remove_blacklist_number_title">Odstranit číslo</string>
+  <string name="remove_blacklist_entry">Opravdu odstranit toto číslo z černé listiny?</string>
+  <string name="select_contact">Zvolit kontakt</string>
 </resources>

@@ -75,8 +75,12 @@
   <string name="bootanim_settings_title">ඇරඹුම් සජීවීකරණ</string>
   <string name="soundpack_settings_title">ශබ්ද ඇසුරුම්</string>
   <string name="lockscreen_quick_unlock_control_title">ඉක්මන් යතුරු අගුළු ඇරීම</string>
-  <string name="lockscreen_quick_unlock_control_summary">මුරපද හෝ යතුරු අගුළු තිරය සඳහා ඇතුලත් කිරීමේ බොත්තම ඔබන්නේ නැතුව අගුළු අරින්න</string>
+  <string name="lockscreen_quick_unlock_control_summary">මුරපද හෝ PIN අගුළු තිරය සඳහා ඇතුලත් කිරීමේ බොත්තම ඔබන්නේ නැතුව අගුළු අරින්න</string>
   <string name="device_hostname">උපාංගයේ ආගන්තුක නාමය</string>
+  <string name="nfc_polling_mode_title">NFC පරාගන ප්‍රකාරය</string>
+  <string name="nfc_polling_mode_screen_off">තිරය අක්‍රීයයි</string>
+  <string name="nfc_polling_mode_screen_locked">තිරය සක්‍රීයයි, අගුළු ලූ</string>
+  <string name="nfc_polling_mode_screen_unlocked">තිරය සක්‍රීයයි, අගුළු ඇරූ (පෙරනිමි)</string>
   <string name="wifi_menu_forget_all">සියලුම ජාල අමතක කරන්න</string>
   <string name="data_usage_lengths_spinner_subtitle">කාල ප්‍රමාණය:</string>
   <string name="checkbox_increasing_ring">සබලයි</string>
@@ -95,6 +99,8 @@
   <string name="wifi_setting_countrycode_title">Wi-Fi කලාප කේතය</string>
   <string name="wifi_setting_countrycode_summary">Wi-Fi සඳහා කලාප කේතය සඳහන් කරන්න</string>
   <string name="wifi_setting_countrycode_error">කලාප කේතය පිහිටුවීමේදී ගැටළුවක් ඇතිවිය.</string>
+  <string name="wifi_ssid_input_limit">SSID උපරිම දිග ඉක්මවා ඇත</string>
+  <string name="p2p_device_name_input_limit">P2P නම උපරිම දිග ඉක්මවා ඇත</string>
   <string name="live_volume_title">සජීවී හඬ පරිමා පියවර</string>
   <string name="volume_steps_60">60</string>
   <string name="volume_steps_45">45</string>
@@ -110,4 +116,37 @@
   <string name="volume_steps_system_title">හඬ පරිමා පියවර: පද්ධතිය</string>
   <string name="volume_steps_voice_call_title">හඬ පරිමා පියවර: හඬ ඇමතුම</string>
   <string name="bluetooth_accept_all_files">සියලුම ගොනු වර්ග පිළිගන්න</string>
+  <string name="lock_numpad_random_title">PIN පෑඩයේ අංක අනුක්‍රමය වෙනස්කරන්න</string>
+  <string name="lock_numpad_random_dialog_title">PIN පෑඩයේ අහඹු අනුක්‍රමය</string>
+  <string name="lock_numpad_random_off">අක්‍රීයයි</string>
+  <string name="lock_numpad_random_always">සැමවිටම</string>
+  <string name="lock_numpad_random_on_request">ඉල්ලීමකදී</string>
+  <string name="disable_fullscreen_keyboard_title">පුන් තිර යතුරු පුවරුව අබල කරන්න</string>
+  <string name="disable_fullscreen_keyboard_summary">තිරස් යතුරු පුවරුව කිසි විටෙකත් මුළු තිරයම නොගනී</string>
+  <string name="blacklist_title">අපලේඛණය</string>
+  <string name="blacklist_edit_dialog_title">අපලේඛණ පිවිසුම සකසන්න</string>
+  <string name="blacklist_prefs">සැකසීම්</string>
+  <string name="blacklist_button_delete">මකන්න</string>
+  <string name="blacklist_empty_text">ඔබ සතුව අපලේඛනගත අංක කිසිවක් නැත. එක් කරන්න (+) බොත්තම ස්පර්ශකර පිවිසුමක් එක් කරන්න.</string>
+  <string name="blacklist_disabled_empty_text">නියමිත අංක සඳහා ඇමතුම් සහ/හෝ පනිවිඩ අපලේඛණය කිරීමට, අපලේඛණය සක්‍රීය කරන්න.</string>
+  <string name="blacklist_summary_disabled">අක්‍රීයයි</string>
+  <string name="blacklist_summary">අපලේඛණයේ ඇති දුරකථන අංක මගින් පැමිණෙන ඇමතුම් සහ පනිවිඩ අවහිර කෙරේ</string>
+  <string name="blacklist_notify">දැනුම්දීම් පෙන්වන්න</string>
+  <string name="blacklist_private_numbers_title">පුද්ගලික අංක</string>
+  <string name="blacklist_private_numbers_summary_disabled">පුද්ගලික අංක සඳහා ඇමතුම් අවහිර නොකරන්න</string>
+  <string name="blacklist_private_numbers_summary">පුද්ගලික අංක වෙතින් පැමිණෙන <xliff:g id="type">%s</xliff:g> අවහිර කරන්න</string>
+  <string name="blacklist_unknown_numbers_title">නාඳුනන අංක</string>
+  <string name="blacklist_unknown_numbers_summary_disabled">සම්බන්ධතා ලයිස්තුවේ අඩංගු නොවන අංක සඳහා ඇමතුම් හෝ පණිවිඩ අවහිර නොකරන්න</string>
+  <string name="blacklist_unknown_numbers_summary">සම්බන්ධතා ලයිස්තුවේ නොමැති අංක වෙතින් පැමිණෙන <xliff:g id="type">%s</xliff:g> අවහිර කරන්න</string>
+  <string name="blacklist_summary_type_calls_only">ඇමතුම්</string>
+  <string name="blacklist_summary_type_messages_only">පණිවිඩ</string>
+  <string name="blacklist_summary_type_calls_and_messages">ඇමතුම් සහ පනිවිඩ</string>
+  <string name="blacklist_regex_title">ආදේශක භාවිතාකරන්න</string>
+  <string name="blacklist_regex_summary">ආදේශකයක් ලෙස . සහ ප්‍රාසය සඳහා * භාවිතාකරන්න. උදා. 123.* 123 න් ඇරඹෙන අංක අවහිර කරන අතර .*123.* 123 ඇතුළත් වෙන අංක අවහිර කරයි</string>
+  <string name="blacklist_policy_block_calls">පැමිණෙන ඇමතුම් අවහිර කරන්න</string>
+  <string name="blacklist_policy_block_messages">පැමිණෙන පණිවිඩ අවහිර කරන්න</string>
+  <string name="add_blacklist_number">අංකයක් එක් කරන්න</string>
+  <string name="remove_blacklist_number_title">අංකයක් ඉවත්කරන්න</string>
+  <string name="remove_blacklist_entry">ඔබට මෙම අපලේඛණ සටහන ඉවත්කිරීමට අවශ්‍යද?</string>
+  <string name="select_contact">සම්බන්ධතාවක් තෝරන්න</string>
 </resources>

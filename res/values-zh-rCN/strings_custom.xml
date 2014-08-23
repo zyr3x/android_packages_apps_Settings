@@ -79,6 +79,10 @@
   <string name="lockscreen_quick_unlock_control_title">快速PIN解锁</string>
   <string name="lockscreen_quick_unlock_control_summary">密码/PIN解锁不需要点击回车按钮</string>
   <string name="device_hostname">设备名称</string>
+  <string name="nfc_polling_mode_title">NFC 侦测模式</string>
+  <string name="nfc_polling_mode_screen_off">屏幕关闭</string>
+  <string name="nfc_polling_mode_screen_locked">屏幕开启，锁屏</string>
+  <string name="nfc_polling_mode_screen_unlocked">屏幕开启，解锁 (默认)</string>
   <string name="wifi_menu_forget_all">所有网络都不记住</string>
   <string name="data_usage_lengths_spinner_subtitle">周期长度：</string>
   <string name="checkbox_increasing_ring">启用</string>
@@ -96,6 +100,8 @@
   <string name="wifi_setting_countrycode_title">Wi-Fi 区域代码</string>
   <string name="wifi_setting_countrycode_summary">设置 Wi-Fi 区域代码</string>
   <string name="wifi_setting_countrycode_error">设置区域代码时出现问题。</string>
+  <string name="wifi_ssid_input_limit">SSID 超过长度上限</string>
+  <string name="p2p_device_name_input_limit">P2P 名称超过长度上限</string>
   <string name="live_volume_title">情景模式</string>
   <string name="volume_steps_60">60</string>
   <string name="volume_steps_45">45</string>
@@ -111,4 +117,37 @@
   <string name="volume_steps_system_title">音量模式：系统</string>
   <string name="volume_steps_voice_call_title">音量模式：语音电话</string>
   <string name="bluetooth_accept_all_files">接受所有文件类型</string>
+  <string name="lock_numpad_random_title">更改 PIN 键盘数字的顺序</string>
+  <string name="lock_numpad_random_dialog_title">PIN键盘数字顺序随机</string>
+  <string name="lock_numpad_random_off">禁用</string>
+  <string name="lock_numpad_random_always">总是</string>
+  <string name="lock_numpad_random_on_request">在请求时</string>
+  <string name="disable_fullscreen_keyboard_title">禁用全屏键盘</string>
+  <string name="disable_fullscreen_keyboard_summary">横屏时键盘将不会占据整个屏幕</string>
+  <string name="blacklist_title">黑名单</string>
+  <string name="blacklist_edit_dialog_title">编辑黑名单</string>
+  <string name="blacklist_prefs">设置</string>
+  <string name="blacklist_button_delete">删除</string>
+  <string name="blacklist_empty_text">您的黑名单中没有任何号码。您可以点击 (+) 按钮来添加。</string>
+  <string name="blacklist_disabled_empty_text">要阻止来自特定号码的来电或短信，请启用黑名单。</string>
+  <string name="blacklist_summary_disabled">已禁用</string>
+  <string name="blacklist_summary">来自黑名单上的号码的电话与短信将被阻止</string>
+  <string name="blacklist_notify">显示通知</string>
+  <string name="blacklist_private_numbers_title">私有号码</string>
+  <string name="blacklist_private_numbers_summary_disabled">不要阻止私有号码的来电</string>
+  <string name="blacklist_private_numbers_summary">阻止私有号码<xliff:g id="type">%s</xliff:g></string>
+  <string name="blacklist_unknown_numbers_title">未知号码</string>
+  <string name="blacklist_unknown_numbers_summary_disabled">不要阻止不在联系人列表上的号码的来电和短信</string>
+  <string name="blacklist_unknown_numbers_summary">阻止不在联系人列表上的号码<xliff:g id="type">%s</xliff:g></string>
+  <string name="blacklist_summary_type_calls_only">来电</string>
+  <string name="blacklist_summary_type_messages_only">信息</string>
+  <string name="blacklist_summary_type_calls_and_messages">来电和信息</string>
+  <string name="blacklist_regex_title">使用通配符</string>
+  <string name="blacklist_regex_summary">使用 . 表示通配符 * 表示多个字符。例： 123.* 表示123开头的号码； .*123.* 表示含有123的号码</string>
+  <string name="blacklist_policy_block_calls">阻止来电</string>
+  <string name="blacklist_policy_block_messages">阻止接收信息</string>
+  <string name="add_blacklist_number">添加号码</string>
+  <string name="remove_blacklist_number_title">移除号码</string>
+  <string name="remove_blacklist_entry">你想要删除这个黑名单条目吗？</string>
+  <string name="select_contact">选择联系人</string>
 </resources>

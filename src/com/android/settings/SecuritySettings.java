@@ -20,7 +20,6 @@ package com.android.settings;
 import static android.provider.Settings.System.SCREEN_OFF_TIMEOUT;
 
 import android.app.Activity;
-import android.app.ActivityManager;
 import android.app.AlertDialog;
 import android.app.admin.DevicePolicyManager;
 import android.content.Context;
@@ -43,7 +42,9 @@ import android.security.KeyStore;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 
+import com.android.internal.telephony.util.BlacklistUtils;
 import com.android.internal.widget.LockPatternUtils;
+import com.android.settings.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -68,6 +69,7 @@ public class SecuritySettings extends RestrictedSettingsFragment
     private static final String KEY_LOCK_AFTER_TIMEOUT = "lock_after_timeout";
     private static final String KEY_OWNER_INFO_SETTINGS = "owner_info_settings";
     private static final String KEY_ENABLE_WIDGETS = "keyguard_enable_widgets";
+    private static final String KEY_VISIBLE_GESTURE = "visiblegesture";
 
     private static final int SET_OR_CHANGE_LOCK_METHOD_REQUEST = 123;
     private static final int CONFIRM_EXISTING_FOR_BIOMETRIC_WEAK_IMPROVE_REQUEST = 124;
@@ -87,6 +89,10 @@ public class SecuritySettings extends RestrictedSettingsFragment
     private static final String KEY_CREDENTIALS_MANAGER = "credentials_management";
     private static final String KEY_NOTIFICATION_ACCESS = "manage_notification_access";
     private static final String PACKAGE_MIME_TYPE = "application/vnd.android.package-archive";
+
+    // Omni Additions
+    private static final String KEY_APP_SECURITY_CATEGORY = "app_security";
+    private static final String KEY_BLACKLIST = "blacklist";
 
     private PackageManager mPM;
     private DevicePolicyManager mDPM;
@@ -110,7 +116,7 @@ public class SecuritySettings extends RestrictedSettingsFragment
     private CheckBoxPreference mPowerButtonInstantlyLocks;
     private CheckBoxPreference mEnableKeyguardWidgets;
     private ListPreference mLockNumpadRandom;
-
+    private CheckBoxPreference mVisibleGesture;
 
     private Preference mNotificationAccess;
 
@@ -119,6 +125,9 @@ public class SecuritySettings extends RestrictedSettingsFragment
     public SecuritySettings() {
         super(null /* Don't ask for restrictions pin on creation. */);
     }
+
+    // Omni Additions
+    private PreferenceScreen mBlacklist;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -168,6 +177,9 @@ public class SecuritySettings extends RestrictedSettingsFragment
                 case DevicePolicyManager.PASSWORD_QUALITY_ALPHANUMERIC:
                 case DevicePolicyManager.PASSWORD_QUALITY_COMPLEX:
                     resid = R.xml.security_settings_password;
+                    break;
+                case DevicePolicyManager.PASSWORD_QUALITY_GESTURE_WEAK:
+                    resid = R.xml.security_settings_gesture;
                     break;
             }
         }
@@ -219,6 +231,9 @@ public class SecuritySettings extends RestrictedSettingsFragment
         // Quick Unlock for PIN and Password Lockscreens
         mQuickUnlock = (CheckBoxPreference) root.findPreference(KEY_QUICK_UNLOCK);
 
+        // visible gesture
+        mVisibleGesture = (CheckBoxPreference) root.findPreference(KEY_VISIBLE_GESTURE);
+
         // lock instantly on power key press
         mPowerButtonInstantlyLocks = (CheckBoxPreference) root.findPreference(
                 KEY_POWER_INSTANTLY_LOCKS);
@@ -239,6 +254,9 @@ public class SecuritySettings extends RestrictedSettingsFragment
                     root.findPreference(KEY_SECURITY_CATEGORY);
             if (securityCategory != null && mVisiblePattern != null) {
                 securityCategory.removePreference(root.findPreference(KEY_VISIBLE_PATTERN));
+            }
+            if (securityCategory != null && mVisibleGesture != null) {
+                securityCategory.removePreference(root.findPreference(KEY_VISIBLE_GESTURE));
             }
         }
 
@@ -273,9 +291,7 @@ public class SecuritySettings extends RestrictedSettingsFragment
         // Enable or disable keyguard widget checkbox based on DPM state
         mEnableKeyguardWidgets = (CheckBoxPreference) root.findPreference(KEY_ENABLE_WIDGETS);
         if (mEnableKeyguardWidgets != null) {
-            if (ActivityManager.isLowRamDeviceStatic()
-                    || mLockPatternUtils.isLockScreenDisabled()) {
-                // Widgets take a lot of RAM, so disable them on low-memory devices
+            if (mLockPatternUtils.isLockScreenDisabled()) {
                 PreferenceGroup securityCategory
                         = (PreferenceGroup) root.findPreference(KEY_SECURITY_CATEGORY);
                 if (securityCategory != null) {
@@ -339,6 +355,14 @@ public class SecuritySettings extends RestrictedSettingsFragment
             } else {
                 mToggleVerifyApps.setEnabled(false);
             }
+        }
+
+        mBlacklist = (PreferenceScreen) root.findPreference(KEY_BLACKLIST);
+
+        // Determine options based on device telephony support
+        if (!getPackageManager().hasSystemFeature(PackageManager.FEATURE_TELEPHONY)) {
+            // No telephony, remove dependent options
+            root.removePreference(mBlacklist);
         }
 
         mNotificationAccess = findPreference(KEY_NOTIFICATION_ACCESS);
@@ -547,6 +571,8 @@ public class SecuritySettings extends RestrictedSettingsFragment
         if (mEnableKeyguardWidgets != null) {
             mEnableKeyguardWidgets.setChecked(lockPatternUtils.getWidgetsEnabled());
         }
+
+        updateBlacklistSummary();
     }
 
     @Override
@@ -598,6 +624,8 @@ public class SecuritySettings extends RestrictedSettingsFragment
         } else if (KEY_QUICK_UNLOCK.equals(key)) {
             Settings.AOKP.putBoolean(getContentResolver(),
                  Settings.AOKP.LOCKSCREEN_QUICK_UNLOCK_CONTROL, isToggled(preference));
+        } else if (KEY_VISIBLE_GESTURE.equals(key)) {
+            lockPatternUtils.setVisibleGestureEnabled(isToggled(preference));
         } else if (KEY_POWER_INSTANTLY_LOCKS.equals(key)) {
             lockPatternUtils.setPowerButtonInstantlyLocks(isToggled(preference));
         } else if (KEY_ENABLE_WIDGETS.equals(key)) {
@@ -679,5 +707,15 @@ public class SecuritySettings extends RestrictedSettingsFragment
         Intent intent = new Intent();
         intent.setClassName("com.android.facelock", "com.android.facelock.AddToSetup");
         startActivity(intent);
+    }
+
+    private void updateBlacklistSummary() {
+        if (mBlacklist != null) {
+            if (BlacklistUtils.isBlacklistEnabled(getActivity())) {
+                mBlacklist.setSummary(R.string.blacklist_summary);
+            } else {
+                mBlacklist.setSummary(R.string.blacklist_summary_disabled);
+            }
+        }
     }
 }

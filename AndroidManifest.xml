@@ -93,10 +93,13 @@
         android:permissionGroup="android.permission-group.SUPERUSER"
         android:protectionLevel="dangerous" />
 
+    <uses-permission android:name="android.permission.READ_PHONE_BLACKLIST" />
+    <uses-permission android:name="android.permission.CHANGE_PHONE_BLACKLIST" />
+
     <application android:label="@string/settings_label"
             android:icon="@mipmap/ic_launcher_settings"
             android:taskAffinity=""
-            android:theme="@style/Theme.Settings"
+            android:theme="@style/Theme.Settings.Holo"
             android:hardwareAccelerated="true"
             android:requiredForAllUsers="true"
             android:supportsRtl="true">
@@ -144,7 +147,6 @@
 
 
         <!-- Settings -->
-
         <activity android:name="Settings"
                 android:label="@string/settings_label_launcher"
                 android:taskAffinity="com.android.settings"
@@ -318,6 +320,23 @@
                 <category android:name="android.intent.category.DEVELOPMENT_PREFERENCE" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
+        </activity>
+
+        <!-- "Blacklist settings" UI, used only on voice-capable phone devices. -->
+        <activity android:name="Settings$BlacklistSettingsActivity"
+                android:theme="@android:style/Theme.Holo.DialogWhenLarge"
+                android:uiOptions="splitActionBarWhenNarrow"
+                android:label="@string/blacklist_title"
+                android:taskAffinity=""
+                android:excludeFromRecents="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.blacklist.BlacklistSettings" />
+            <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID"
+                android:resource="@id/security_settings" />
         </activity>
 
         <!-- Suspect activity alias: targetActivity is Settings itself, does not define a name. Remove? -->
@@ -867,6 +886,19 @@
                 android:value="com.android.settings.NotificationStation" />
         </activity>
 
+        <!-- Pseudo-activity used to provide an intent-filter entry point to quite hours settings -->
+        <activity android:name="Settings$QuietHoursSettingsActivity"
+                android:label="@string/quiet_hours_title"
+                android:taskAffinity=""
+                android:excludeFromRecents="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.QuietHours" />
+        </activity>
+
         <activity android:name="Settings$AppOpsSummaryActivity"
                 android:label="@string/app_ops_settings"
                 android:taskAffinity="com.android.settings"
@@ -1107,6 +1139,8 @@
         <!-- Lock screen settings -->
         <activity android:name="ConfirmLockPattern"/>
 
+        <activity android:name="ConfirmLockGesture"/>
+
         <activity android:name="ConfirmLockPassword"
             android:windowSoftInputMode="stateVisible|adjustResize"/>
 
@@ -1124,7 +1158,11 @@
             android:excludeFromRecents="true"
         />
 
+        <activity android:name="ChooseLockPatternSize" android:exported="false"/>
+
         <activity android:name="ChooseLockPattern" android:exported="false"/>
+
+        <activity android:name="ChooseLockGesture" android:exported="false"/>
 
         <activity android:name="ChooseLockPassword" android:exported="false"
             android:windowSoftInputMode="stateVisible|adjustResize"/>

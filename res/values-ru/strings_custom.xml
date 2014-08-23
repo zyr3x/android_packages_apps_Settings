@@ -77,6 +77,10 @@
   <string name="lockscreen_quick_unlock_control_title">Быстрая разблокировка</string>
   <string name="lockscreen_quick_unlock_control_summary">Разблокировка экрана паролем/пин-кодом без нажатия кнопки ввода</string>
   <string name="device_hostname">Хост устройства</string>
+  <string name="nfc_polling_mode_title">Режим NFC</string>
+  <string name="nfc_polling_mode_screen_off">Экран выкл</string>
+  <string name="nfc_polling_mode_screen_locked">Экран вкл, заблокирован</string>
+  <string name="nfc_polling_mode_screen_unlocked">Экран вкл, разблокирован (по умолчанию)</string>
   <string name="wifi_menu_forget_all">Забыть все сети</string>
   <string name="data_usage_lengths_spinner_subtitle">Длина цикла:</string>
   <string name="performance_settings_title">Производительность</string>
@@ -118,6 +122,8 @@
   <string name="wifi_setting_countrycode_title">Код региона Wi-Fi</string>
   <string name="wifi_setting_countrycode_summary">Указать код региона Wi-Fi</string>
   <string name="wifi_setting_countrycode_error">При настройке кода региона возникла проблема.</string>
+  <string name="wifi_ssid_input_limit">SSID превышает макс. длину</string>
+  <string name="p2p_device_name_input_limit">Имя P2P превышает макс. длину</string>
   <string name="live_volume_title">Пошаговые уровни громкости</string>
   <string name="volume_steps_60">60</string>
   <string name="volume_steps_45">45</string>
@@ -133,4 +139,37 @@
   <string name="volume_steps_system_title">Уровни: система</string>
   <string name="volume_steps_voice_call_title">Уровни: голосовой вызов</string>
   <string name="bluetooth_accept_all_files">Принимать все типы файлов</string>
+  <string name="lock_numpad_random_title">Изменить порядок цифр на экране ввода PIN</string>
+  <string name="lock_numpad_random_dialog_title">PIN в случайном порядке</string>
+  <string name="lock_numpad_random_off">Отключен</string>
+  <string name="lock_numpad_random_always">Всегда</string>
+  <string name="lock_numpad_random_on_request">По запросу</string>
+  <string name="disable_fullscreen_keyboard_title">Откл полноэкр. клавиатуру</string>
+  <string name="disable_fullscreen_keyboard_summary">В ландшафтном режиме клавиатура не будет разворачиваться на полный экран</string>
+  <string name="blacklist_title">Чёрный список</string>
+  <string name="blacklist_edit_dialog_title">Редактировать список</string>
+  <string name="blacklist_prefs">Настройки</string>
+  <string name="blacklist_button_delete">Удалить</string>
+  <string name="blacklist_empty_text">У вас нет номеров в черном списке. Добавьте номер при помощи кнопки Добавить(+).</string>
+  <string name="blacklist_disabled_empty_text">Для отклонения входящих вызовов и сообщений от определенных номеров, включите чёрный список.</string>
+  <string name="blacklist_summary_disabled">Отключен</string>
+  <string name="blacklist_summary">Входящие звонки и сообщения от телефонных номеров в чёрном списке будут блокироваться</string>
+  <string name="blacklist_notify">Показывать уведомление</string>
+  <string name="blacklist_private_numbers_title">Скрытые номера</string>
+  <string name="blacklist_private_numbers_summary_disabled">Не блокировать вызовы от скрытых номеров</string>
+  <string name="blacklist_private_numbers_summary">Блокировать входящие <xliff:g id="type">%s</xliff:g> от скрытых номеров</string>
+  <string name="blacklist_unknown_numbers_title">Неизвестные номера</string>
+  <string name="blacklist_unknown_numbers_summary_disabled">Не блокировать вызовы или сообщения от номеров, не входящих в список контактов</string>
+  <string name="blacklist_unknown_numbers_summary">Блокировать входящие <xliff:g id="type"> %s </xliff:g> не из списка контактов</string>
+  <string name="blacklist_summary_type_calls_only">вызовы</string>
+  <string name="blacklist_summary_type_messages_only">сообщения</string>
+  <string name="blacklist_summary_type_calls_and_messages">вызовы и сообщения</string>
+  <string name="blacklist_regex_title">Использовать символы</string>
+  <string name="blacklist_regex_summary">Использовать . в качестве символа и * для повтора. Напр. 123.* блокирует номера, начинающиеся с 123, а .*123.* блокирует номера, содержащие 123</string>
+  <string name="blacklist_policy_block_calls">Блокировать входящие вызовы</string>
+  <string name="blacklist_policy_block_messages">Блокировать входящие сообщения</string>
+  <string name="add_blacklist_number">Добавить номер</string>
+  <string name="remove_blacklist_number_title">Удалить номер</string>
+  <string name="remove_blacklist_entry">Вы действительно хотите удалить данный номер из чёрного списка?</string>
+  <string name="select_contact">Выбрать контакт</string>
 </resources>
