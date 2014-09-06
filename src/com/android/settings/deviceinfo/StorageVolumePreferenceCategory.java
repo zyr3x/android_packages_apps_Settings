@@ -51,6 +51,7 @@ public class StorageVolumePreferenceCategory extends PreferenceCategory {
 
     private static final int ORDER_USAGE_BAR = -2;
     private static final int ORDER_STORAGE_LOW = -1;
+    public static final String KEY_UNMOUNT_USB = "key_unmount_usb";
 
     /** Physical volume being measured, or {@code null} for internal. */
     private final StorageVolume mVolume;
@@ -129,6 +130,8 @@ public class StorageVolumePreferenceCategory extends PreferenceCategory {
 
         setTitle(volume != null ? volume.getDescription(context)
                 : context.getText(R.string.internal_storage));
+
+
     }
 
     private StorageItemPreference buildItem(int titleRes, int colorRes) {
@@ -197,12 +200,20 @@ public class StorageVolumePreferenceCategory extends PreferenceCategory {
         }
 
         final boolean isRemovable = mVolume != null ? mVolume.isRemovable() : false;
+        final boolean isUsbStorage = mVolume != null ? (mVolume.getDescription(context).equals(
+                Resources.getSystem().getString(Resources.getSystem().getIdentifier(
+                "storage_usb", "string", "android"))) ? true : false) : false;
+        final boolean isAccessible = mResources.getBoolean(
+                com.android.internal.R.bool.config_batterySdCardAccessibility);
         // Always create the preference since many code rely on it existing
         mMountTogglePreference = new Preference(context);
-        if (isRemovable) {
+        if (isRemovable && (isUsbStorage || isAccessible)) {
             mMountTogglePreference.setTitle(R.string.sd_eject);
             mMountTogglePreference.setSummary(R.string.sd_eject_summary);
             addPreference(mMountTogglePreference);
+        }
+        if (isRemovable && isUsbStorage) {
+            mMountTogglePreference.setKey(KEY_UNMOUNT_USB);
         }
 
         final boolean allowFormat = mVolume != null;
@@ -286,7 +297,7 @@ public class StorageVolumePreferenceCategory extends PreferenceCategory {
                 mFormatPreference.setSummary(mResources.getString(R.string.mtp_ptp_mode_summary));
             }
         } else if (mFormatPreference != null) {
-            mFormatPreference.setEnabled(true);
+            mFormatPreference.setEnabled(mMountTogglePreference.isEnabled());
             mFormatPreference.setSummary(mResources.getString(R.string.sd_format_summary));
         }
     }
