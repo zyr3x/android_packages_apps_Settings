@@ -243,6 +243,11 @@ public class Settings extends PreferenceActivity
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        // Check for disabled config option
+        if (!getResources().getBoolean(R.bool.config_enableSearch)) {
+            return false;
+        }
+
         // We only want to inflate the search menu item in the top-level activity
         if (getClass() != Settings.class) {
             return false;
@@ -332,14 +337,15 @@ public class Settings extends PreferenceActivity
             });
         }
 
-        // Override up navigation for multi-pane, since we handle it in the fragment breadcrumbs
-        if (onIsMultiPane()) {
-            getActionBar().setDisplayHomeAsUpEnabled(false);
-            getActionBar().setHomeButtonEnabled(false);
-        }
-
         mActionBar = getActionBar();
-        mActionBar.setDisplayShowCustomEnabled(true);
+        if (mActionBar != null) {
+            // Override up navigation for multi-pane, since we handle it in the fragment breadcrumbs
+            if (onIsMultiPane()) {
+                mActionBar.setDisplayHomeAsUpEnabled(false);
+                mActionBar.setHomeButtonEnabled(false);
+            }
+            mActionBar.setDisplayShowCustomEnabled(true);
+        }
     }
 
     @Override
@@ -1198,8 +1204,10 @@ public class Settings extends PreferenceActivity
                     String accType = header.extras.getString(
                             ManageAccountsSettings.KEY_ACCOUNT_TYPE);
                     Drawable icon = mAuthHelper.getDrawableForType(getContext(), accType);
-                    setHeaderIcon(holder, icon);
+                    updateIconLayout(holder, true);
+                    holder.icon.setImageDrawable(icon);
                 } else {
+                    updateIconLayout(holder, false);
                     holder.icon.setImageResource(header.iconRes);
                 }
                 holder.title.setText(header.getTitle(getContext().getResources()));
@@ -1212,13 +1220,16 @@ public class Settings extends PreferenceActivity
                 }
             }
 
-        private void setHeaderIcon(HeaderViewHolder holder, Drawable icon) {
+        private void updateIconLayout(HeaderViewHolder holder, boolean forceDefaultSize) {
             ViewGroup.LayoutParams lp = holder.icon.getLayoutParams();
-            lp.width = getContext().getResources().getDimensionPixelSize(
-                    R.dimen.header_icon_width);
+            if (forceDefaultSize) {
+                lp.width = getContext().getResources().getDimensionPixelSize(
+                        R.dimen.header_icon_width);
+            } else {
+                lp.width = ViewGroup.LayoutParams.WRAP_CONTENT;
+            }
             lp.height = lp.width;
             holder.icon.setLayoutParams(lp);
-            holder.icon.setImageDrawable(icon);
         }
 
         public void resume() {
@@ -1245,19 +1256,6 @@ public class Settings extends PreferenceActivity
         boolean revert = false;
         if (header.id == R.id.account_add) {
             revert = true;
-        }
-
-        // a temp hack while we prepare to switch
-        // to the new theme chooser.
-        if (header.id == R.id.theme_settings) {
-            try {
-                Intent intent = new Intent();
-                intent.setClassName("com.tmobile.themechooser", "com.tmobile.themechooser.ThemeChooser");
-                startActivity(intent);
-                return;
-            } catch(ActivityNotFoundException e) {
-                 // Do nothing, we will launch the submenu
-            }
         }
 
         super.onHeaderClick(header, position);
