@@ -941,6 +941,7 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="hardware_keys_action_in_app_search">In-app search</string>
     <string name="hardware_keys_action_launch_camera">Launch camera</string>
     <string name="hardware_keys_action_last_app">Last app</string>
+    <string name="hardware_keys_action_sleep">Turn screen off</string>
     <string name="power_end_call_title">End call</string>
     <string name="power_end_call_summary">Pressing the power button will end the current call</string>
     <string name="button_wake_title">Wake up</string>
@@ -1438,4 +1439,9 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="device_status_summary_cm" product="tablet">Status of the battery, network, and other information</string>
     <!-- About phone screen, summary of the item to go into the phone status screen -->
     <string name="device_status_summary_cm" product="default">Battery status, battery level, etc.</string>
+
+    <!-- Wifi AP: connected devices -->
+    <string name="wifi_ap_clients_title">Connected devices</string>
+    <string name="wifi_ap_client_ap_disabled">Hotspot is disabled</string>
+    <string name="wifi_ap_client_none_connected">No devices connected</string>
 </resources>
