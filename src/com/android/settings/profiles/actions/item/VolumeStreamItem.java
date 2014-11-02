@@ -15,32 +15,29 @@
  */
 package com.android.settings.profiles.actions.item;
 
-import android.app.AlertDialog;
 import android.app.StreamSettings;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.media.AudioManager;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.SeekBar;
+import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.android.settings.R;
 import com.android.settings.profiles.actions.ItemListAdapter;
 
 public class VolumeStreamItem implements Item {
-
     private int mStreamId;
     private StreamSettings mStreamSettings;
 
     public VolumeStreamItem(int streamId, StreamSettings streamSettings) {
-        this.mStreamId = streamId;
+        mStreamId = streamId;
         mStreamSettings = streamSettings;
     }
 
     @Override
-    public int getViewType() {
-        return ItemListAdapter.RowType.VOLUME_STREAM_ITEM.ordinal();
+    public ItemListAdapter.RowType getRowType() {
+        return ItemListAdapter.RowType.VOLUME_STREAM_ITEM;
     }
 
     @Override
@@ -48,36 +45,11 @@ public class VolumeStreamItem implements Item {
         return true;
     }
 
-    public void requestVolumeDialog(Context context, final DialogInterface.OnClickListener listener) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setTitle(VolumeStreamItem.getNameForStream(mStreamId));
-
-        final AudioManager am = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
-        SeekBar seekBar = new SeekBar(context);
-        seekBar.setPaddingRelative(32, 16, 32, 16); // TODO: confirm appropriate padding
-        seekBar.setMax(am.getStreamMaxVolume(mStreamId));
-        seekBar.setProgress(am.getDevicesForStream(mStreamId));
-        builder.setView(seekBar);
-        builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                listener.onClick(dialog, which);
-            }
-        });
-        builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                listener.onClick(dialog, which);
-            }
-        });
-        builder.create().show();
-    }
-
     @Override
-    public View getView(LayoutInflater inflater, View convertView) {
+    public View getView(LayoutInflater inflater, View convertView, ViewGroup parent) {
         View view;
         if (convertView == null) {
-            view = (View) inflater.inflate(R.layout.list_two_line_item, null);
+            view = inflater.inflate(R.layout.list_two_line_item, parent, false);
             // Do some initialization
         } else {
             view = convertView;
@@ -90,7 +62,7 @@ public class VolumeStreamItem implements Item {
         text.setText(getNameForStream(mStreamId));
 
         TextView desc = (TextView) view.findViewById(R.id.summary);
-        int denominator = am.getDevicesForStream(mStreamId);
+        int denominator = mStreamSettings.getValue();
         int numerator = am.getStreamMaxVolume(mStreamId);
         desc.setText(context.getResources().getString(R.string.volume_override_summary,
                 denominator, numerator));
@@ -114,5 +86,9 @@ public class VolumeStreamItem implements Item {
 
     public int getStreamType() {
         return mStreamId;
+    }
+
+    public StreamSettings getSettings() {
+        return mStreamSettings;
     }
 }

@@ -17,59 +17,59 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string-array name="wifi_countrycode_entries">
-    <item>США</item>
-    <item>Канада, Тайвань</item>
-    <item>Германія</item>
-    <item>Європа</item>
-    <item>Японія, Росія</item>
-    <item>Австралія</item>
-    <item>Китай</item>
-    <item>Корея</item>
-    <item>Туреччина</item>
-    <item>Сингапур</item>
-    <item>Бразилія</item>
+    <item>United States</item>
+    <item>Kanada, Taiwan</item>
+    <item>Däitschland</item>
+    <item>Europa</item>
+    <item>Japan, Russland</item>
+    <item>Australien</item>
+    <item>China</item>
+    <item>Korea</item>
+    <item>Turkey</item>
+    <item>Singapur</item>
+    <item>Brasilien</item>
   </string-array>
   <string-array name="profile_entries">
-    <item>Увімкнути</item>
-    <item>Вимкнути</item>
-    <item>Залишити без змін</item>
+    <item>Un</item>
+    <item>Aus</item>
+    <item>Net iwwerschreiwen</item>
   </string-array>
   <string-array name="profile_connection_entries">
-    <item>Вимкнути</item>
-    <item>Увімкнути</item>
+    <item>Desaktivéieren</item>
+    <item>Aktivéieren</item>
   </string-array>
   <string-array name="entries_screentimeout_widget">
-    <item>15 сек. | 1 хв. | 5 хв.</item>
-    <item>30 сек. | 2 хв. | 5 хв.</item>
+    <item>15 Sek. | 1 Min. | 5 Min.</item>
+    <item>30 Sek. | 2 Min. | 5 Min.</item>
   </string-array>
   <string-array name="data_usage_cycle_length">
-    <item>Щоденно</item>
-    <item>Щотижня</item>
-    <item>Щомісяця</item>
+    <item>All Dag</item>
+    <item>All Woch</item>
+    <item>All Mount</item>
   </string-array>
   <string-array name="data_usage_cycle_weekdays">
-    <item>Неділя</item>
-    <item>Понеділок</item>
-    <item>Вівторок</item>
-    <item>Середа</item>
-    <item>Четвер</item>
-    <item>П\'ятниця</item>
-    <item>Субота</item>
+    <item>Sonndeg</item>
+    <item>Méindeg</item>
+    <item>Dënschdeg</item>
+    <item>Mëttwoch</item>
+    <item>Donneschdeg</item>
+    <item>Freideg</item>
+    <item>Samschdeg</item>
   </string-array>
   <string-array name="app_ops_permissions">
-    <item>Дозволено</item>
-    <item>Відмовлено</item>
-    <item>Завжди питати</item>
+    <item>Erlaabt</item>
+    <item>Denied</item>
+    <item>Always ask</item>
   </string-array>
   <string-array name="qs_quick_access_size_entries">
-    <item>Автоматично</item>
-    <item>Автоматично (вузька)</item>
-    <item>Велика</item>
-    <item>Вузька</item>
+    <item>Automatesch</item>
+    <item>Automatesch (schmuel)</item>
+    <item>Grouss</item>
+    <item>Schmuel</item>
   </string-array>
   <string-array name="screen_color_setting">
-    <item>Стандартний</item>
-    <item>Яскравий</item>
-    <item>Користувацький</item>
+    <item>Standard</item>
+    <item>Lieweg</item>
+    <item>Personaliséiert</item>
   </string-array>
 </resources>

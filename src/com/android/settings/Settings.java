@@ -40,6 +40,7 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.nfc.NfcAdapter;
+import android.nfc.Tag;
 import android.os.Bundle;
 import android.os.INetworkManagementService;
 import android.os.RemoteException;
@@ -111,8 +112,10 @@ import com.android.settings.print.PrintJobSettingsFragment;
 import com.android.settings.print.PrintServiceSettingsFragment;
 import com.android.settings.print.PrintSettingsFragment;
 import com.android.settings.privacyguard.PrivacyGuardPrefs;
+import com.android.settings.profiles.NFCProfileTagCallback;
 import com.android.settings.profiles.ProfileEnabler;
 import com.android.settings.profiles.ProfilesSettings;
+import com.android.settings.profiles.triggers.NfcTriggerFragment;
 import com.android.settings.quicksettings.QuickSettingsTiles;
 import com.android.settings.search.SettingsAutoCompleteTextView;
 import com.android.settings.search.SearchPopulator;
@@ -161,6 +164,8 @@ public class Settings extends PreferenceActivity
 
     private static final String VOICE_WAKEUP_PACKAGE_NAME = "com.cyanogenmod.voicewakeup";
     private static final String GESTURE_SETTINGS_PACKAGE_NAME = "com.cyanogenmod.settings";
+
+    private static final String THEME_CHOOSER_CATEGORY = "cyngn.intent.category.APP_THEMES";
 
     static final int DIALOG_ONLY_ONE_HOME = 1;
 
@@ -221,6 +226,8 @@ public class Settings extends PreferenceActivity
     private ActionBar mActionBar;
     private MenuItem mSearchItem;
     private SettingsAutoCompleteTextView mSearchBar;
+
+    private NFCProfileTagCallback mNfcProfileCallback;
 
     private boolean mBatteryPresent = true;
     private BroadcastReceiver mBatteryInfoReceiver = new BroadcastReceiver() {
@@ -552,8 +559,15 @@ public class Settings extends PreferenceActivity
 
     @Override
     public void onNewIntent(Intent intent) {
-        super.onNewIntent(intent);
+        if (NfcAdapter.ACTION_TAG_DISCOVERED.equals(intent.getAction())) {
+            Tag detectedTag = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
+            if (mNfcProfileCallback != null) {
+                mNfcProfileCallback.onTagRead(detectedTag);
+            }
+            return;
+        }
 
+        super.onNewIntent(intent);
         // If it is not launched from history, then reset to top-level
         if ((intent.getFlags() & Intent.FLAG_ACTIVITY_LAUNCHED_FROM_HISTORY) == 0) {
             if (mFirstHeader != null && !onIsHidingHeaders() && onIsMultiPane()) {
@@ -1255,6 +1269,19 @@ public class Settings extends PreferenceActivity
             revert = true;
         }
 
+        // Launch the theme chooser if it supports the cyngn.intent.category.APP_THEMES category.
+        if (header.id == R.id.theme_settings) {
+            Intent intent = new Intent(Intent.ACTION_MAIN)
+                    .addCategory(THEME_CHOOSER_CATEGORY)
+                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            try {
+                startActivity(intent);
+                return;
+            } catch (ActivityNotFoundException e) {
+                // do nothing so the theme settings to be displayed
+            }
+        }
+
         super.onHeaderClick(header, position);
 
         if (revert && mLastHeader != null) {
@@ -1306,6 +1333,10 @@ public class Settings extends PreferenceActivity
         mAuthenticatorHelper.updateAuthDescriptions(this);
         mAuthenticatorHelper.onAccountsUpdated(this, accounts);
         invalidateHeaders();
+    }
+
+    public void setNfcProfileCallback(NFCProfileTagCallback callback) {
+        mNfcProfileCallback = callback;
     }
 
     public static void requestHomeNotice() {
