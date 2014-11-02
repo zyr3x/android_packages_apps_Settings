@@ -139,7 +139,7 @@
     <header
         android:id="@+id/advanced_settings"
         android:icon="@drawable/ic_settings_advanced"
-        android:title="@string/advanced_settings_title">
+        android:title="Advanced">
         <intent
             android:action="android.intent.action.MAIN"
             android:targetPackage="com.cyanogenmod.settings.device"
