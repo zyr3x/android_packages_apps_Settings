@@ -82,6 +82,8 @@
   <string name="connection_state_disabled">Deaktivieren</string>
   <string name="connection_state_enabled">Aktivieren</string>
   <string name="volume_override_summary">Gesetzt auf %1$s/%2$s</string>
+  <string name="volume_override_summary_no_override">Nicht überschreiben</string>
+  <string name="profile_volume_override_checkbox_label">Lautstärke überschreiben</string>
   <string name="profile_profiles_manage">Profile</string>
   <string name="profile_profile_manage">Profil bearbeiten</string>
   <string name="profile_appgroups_manage">App-Gruppen</string>
@@ -117,6 +119,8 @@
   <string name="toggleWifiAp">WLAN-Hotspot</string>
   <string name="toggleBluetooth">Bluetooth</string>
   <string name="toggleGPS">GPS</string>
+  <string name="toggleData">Mobilfunkdaten</string>
+  <string name="toggleSync">Daten automatisch synchronisieren</string>
   <string name="toggle2g3g">Netzmodus</string>
   <string name="toggleWimax">WiMAX</string>
   <string name="toggleNfc">NFC</string>
@@ -125,9 +129,10 @@
   <string name="link_volume_mutes">Klingelton und Benachrichtigungen gemeinsam stummschalten</string>
   <string name="volume_keys_control_ring_stream">Lautstärketasten steuern Klingeltonlautstärke</string>
   <string name="ring_mode_title">Klingelmodus</string>
-  <string name="ring_mode_normal">Normal</string>
+  <string name="ring_mode_normal">Klingeln</string>
   <string name="ring_mode_vibrate">Vibration</string>
   <string name="ring_mode_mute">Lautlos</string>
+  <string name="ring_mode_unchanged">Unverändert</string>
   <string name="volume_overlay_title">Lautstärkeregler</string>
   <string name="volume_overlay_single">Einzeln</string>
   <string name="volume_overlay_expandable">Erweiterbar</string>
@@ -262,8 +267,10 @@
   <string name="title_tile_volume">Lautstärke</string>
   <string name="title_tile_expanded_desktop">Erweiterter Desktop</string>
   <string name="title_tile_network_adb">ADB über Netzwerk</string>
+  <string name="title_tile_themes">Designs</string>
   <string name="title_dynamic_tiles">Dynamische Kacheln</string>
   <string name="dynamic_tiles_note_title">Hinweis</string>
+  <string name="dynamic_tiles_note_summary">Dynamische Kacheln werden nur angezeigt, wenn sie durch ein Systemereignis ausgelöst werden</string>
   <string name="title_dynamic_alarm">Wecker</string>
   <string name="title_dynamic_bugreport">Fehlerprotokollierung</string>
   <string name="title_dynamic_dock_battery">Dock-Akku</string>
@@ -612,6 +619,7 @@ Mittels \"Entfernen\" kann die ausgewählte Stützstelle aus dem Helligkeitsverl
   <string name="navigation_bar_menu_locked">Gesperrt</string>
   <string name="navigation_bar_arrow_keys_title">Pfeiltasten bei Eingabe</string>
   <string name="navigation_bar_arrow_keys_summary">Während der Eingabe Tasten zur Cursorsteuerung in der Navigationsleiste einblenden</string>
+  <string name="navigation_bar_recents_title">Langes Drücken auf Anwendungsverlauf</string>
   <string name="navigation_ring_title">Schnellstart-Verknüpfungen</string>
   <string name="navring_target_reset_message">Schnellstart-Verknüpfungen auf Standard zurücksetzen?</string>
   <string name="navring_target_reset">Schnellstart-Verknüpfungen zurückgesetzt</string>
@@ -723,6 +731,7 @@ Mittels \"Entfernen\" kann die ausgewählte Stützstelle aus dem Helligkeitsverl
   <string name="custom_runtime_warning_title">Warnung</string>
   <string name="custom_runtime_warning_message">ART wird von CyanogenMod nicht unterstützt. Diese Einstellung ist experimentell und nur für Entwickler gedacht. Sie kann zu Instabilitäten, Abstürzen oder Datenverlust führen oder verhindern, dass Ihr Gerät startet. Besuchen Sie &lt;a href=\"http://source.android.com/devices/tech/dalvik/art.html\"&gt;Introducing ART&lt;/a&gt; für mehr Informationen.&lt;br/&gt;&lt;br/&gt;Melden Sie keine Fehler, wenn Sie ART als Laufzeitumgebung aktiviert haben.&lt;br/&gt;&lt;br/&gt;Sind Sie sicher, dass Sie das Gerät neu starten wollen, um die Laufzeitumgebung von <xliff:g id="old" example="libdvm.so">%1$s</xliff:g>
 auf <xliff:g id="new" example="libart.so">%2$s</xliff:g> zu ändern?</string>
+  <string name="gps_download_data_wifi_only">A-GPS-Daten nur über WLAN herunterladen</string>
   <string name="battery_info_status_charging_dock_ac">Ladedock</string>
   <string name="battery_info_status_charging_dock_usb">USB-Dock</string>
   <string name="menu_stats_reset">Zurücksetzen</string>
@@ -797,6 +806,8 @@ auf <xliff:g id="new" example="libart.so">%2$s</xliff:g> zu ändern?</string>
   <string name="app_ops_summaries_keep_awake">aktiv lassen</string>
   <string name="app_ops_summaries_monitor_location">Standort beobachten</string>
   <string name="app_ops_summaries_monitor_high_power_location">Standort mit hohem Stromverbrauch beobachten</string>
+  <string name="app_ops_summaries_wifi_change">WLAN ändern</string>
+  <string name="app_ops_summaries_bluetooth_change">Bluetooth ändern</string>
   <string name="app_ops_summaries_data_change">mobile Daten ändern</string>
   <string name="app_ops_summaries_alarm_wakeup">Ruhezustand ändern</string>
   <string name="app_ops_summaries_send_mms">MMS senden</string>
@@ -836,6 +847,7 @@ auf <xliff:g id="new" example="libart.so">%2$s</xliff:g> zu ändern?</string>
   <string name="app_ops_labels_notification_volume">Gesamtlautstärke</string>
   <string name="app_ops_labels_bluetooth_volume">Bluetooth-Lautstärke</string>
   <string name="app_ops_labels_keep_awake">Aktiv lassen</string>
+  <string name="app_ops_labels_wifi_change">WLAN ändern</string>
   <string name="app_ops_labels_bluetooth_change">Bluetooth ändern</string>
   <string name="app_ops_labels_data_change">Mobile Daten ändern</string>
   <string name="app_ops_labels_alarm_wakeup">Ruhezustand ändern</string>
@@ -876,11 +888,10 @@ auf <xliff:g id="new" example="libart.so">%2$s</xliff:g> zu ändern?</string>
   <string name="voice_wakeup_retrain_title">Stimme neu lernen</string>
   <string name="voice_wakeup_activity_title">Auszuführende Aktion</string>
   <string name="voice_wakeup_default_activity">Google Now</string>
-  <string name="sub_no_sim">Keine SIM-Karte</string>
   <string name="multi_sim_settings_title">SIM-Karten</string>
   <string name="multi_sim_settings_group_summary">Standard-SIM Auswahl</string>
   <string name="voice_title">Sprachanrufe</string>
-  <string name="data_title">Voip-Anrufe</string>
+  <string name="data_title">Datenverbindung</string>
   <string name="sms_title">SMS-Versand</string>
   <string name="priority_sub_title">Vorzugs-SIM</string>
   <string name="bluetooth_accept_all_files">Alle Dateiformate akzeptieren</string>
@@ -960,6 +971,7 @@ auf <xliff:g id="new" example="libart.so">%2$s</xliff:g> zu ändern?</string>
   <string name="enable_quickboot_summary">Gerät für schnellen Neustart vorbereiten, anstatt es vollständig auszuschalten.</string>
   <string name="data_usage_tab_slot">SIM </string>
   <string name="sel_sub_title">SIM-Karten konfigurieren</string>
+  <string name="sel_sub_summary">SIM-Karten auswählen</string>
   <string name="no_sim_info">Keine SIM-Informationen vorhanden.\nMenü nicht verfügbar</string>
   <string name="subs_settings">SIM-Karten-Status</string>
   <string name="set_data_subscription_progress">SIM für Datenverbindung wird ausgewählt\u2026</string>
@@ -969,8 +981,7 @@ auf <xliff:g id="new" example="libart.so">%2$s</xliff:g> zu ändern?</string>
   <string name="set_sms_error">SIM für SMS-Versand konnte nicht ausgewählt werden.</string>
   <string name="set_voice_error">SIM für Telefonate konnte nicht ausgewählt werden.</string>
   <string name="set_priority_sub_error">Priorität der SIM konnte nicht gesetzt werden. Die SIM-Karte ist nicht aktiv.</string>
-  <string name="prompt">Nachfragen</string>
-  <string name="prompt_user">Bei jedem Anruf nachfragen</string>
+  <string name="prompt">Immer nachfragen</string>
   <string name="maximum_head_level">Kopf: %1$s W/kg</string>
   <string name="maximum_body_level">Körper: %1$s W/kg</string>
   <string name="tune_away_title">TuneAway</string>

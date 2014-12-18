@@ -82,6 +82,8 @@
   <string name="connection_state_disabled">Deshabilitado</string>
   <string name="connection_state_enabled">Habilitado</string>
   <string name="volume_override_summary">Establecer a %1$s/%2$s</string>
+  <string name="volume_override_summary_no_override">No anular</string>
+  <string name="profile_volume_override_checkbox_label">Anular volumen</string>
   <string name="profile_profiles_manage">Perfiles</string>
   <string name="profile_profile_manage">Administrar perfil</string>
   <string name="profile_appgroups_manage">Grupo de aplicaciones</string>
@@ -118,7 +120,7 @@
   <string name="toggleBluetooth">Bluetooth</string>
   <string name="toggleGPS">GPS</string>
   <string name="toggleData">Datos móviles</string>
-  <string name="toggleSync">Sicronización automática</string>
+  <string name="toggleSync">Sincronización automática</string>
   <string name="toggle2g3g">2G/3G</string>
   <string name="toggleWimax">WiMAX</string>
   <string name="toggleNfc">NFC</string>
@@ -127,9 +129,10 @@
   <string name="link_volume_mutes">Vincular silencio</string>
   <string name="volume_keys_control_ring_stream">Controlar volumen de llamada</string>
   <string name="ring_mode_title">Modo de sonido</string>
-  <string name="ring_mode_normal">Normal</string>
+  <string name="ring_mode_normal">Sonar</string>
   <string name="ring_mode_vibrate">Vibración</string>
   <string name="ring_mode_mute">Silencio</string>
+  <string name="ring_mode_unchanged">Sin cambios</string>
   <string name="volume_overlay_title">Panel de volumen</string>
   <string name="volume_overlay_single">Sencillo</string>
   <string name="volume_overlay_expandable">Ampliable</string>
@@ -215,7 +218,6 @@
   <string name="lockscreen_maximize_widgets_title">Maximizar widgets</string>
   <string name="lockscreen_maximize_widgets_summary">Expandir los widgets al encender la pantalla</string>
   <string name="lockscreen_enable_camera_title">Widget de cámara</string>
-  <string name="lockscreen_enable_application_widget_title">Widget de aplicación cast</string>
   <string name="safe_headset_volume_title">Volumen seguro</string>
   <string name="safe_headset_volume_restore_title">Reducir el volumen al conectar los auriculares</string>
   <string name="cyanogenmod_waiver_title">Renuncia</string>
@@ -265,6 +267,7 @@
   <string name="title_tile_volume">Volumen</string>
   <string name="title_tile_expanded_desktop">Extender escritorio</string>
   <string name="title_tile_network_adb">ADB sobre red</string>
+  <string name="title_tile_themes">Temas</string>
   <string name="title_dynamic_tiles">Controles dinámicos</string>
   <string name="dynamic_tiles_note_title">Nota</string>
   <string name="dynamic_tiles_note_summary">Los controles dinámicos solamente aparecerán por un evento del sistema</string>
@@ -294,6 +297,8 @@
   <string name="cm_sound_mode_sound">Sonar</string>
   <string name="cm_sound_mode_soundVibrate">Sonar y vibrar</string>
   <string name="pref_location_mode_title">Modos de ubicación</string>
+  <string name="pref_location_mode_summary">Desactivar todos los modos para el comportamiento por defecto</string>
+  <string name="cm_location_mode_off">Ubicación desactivada</string>
   <string name="cm_location_mode_battery_saving">Ahorro de batería</string>
   <string name="cm_location_mode_device_only">Solo en dispositivo</string>
   <string name="cm_location_mode_high_accuracy">Alta precisión</string>
@@ -756,7 +761,7 @@ Tocando de forma prolongada cada línea se mostrarán opciones adicionales. Sele
   <string name="app_ops_summaries_modify_call_log">modificar registro de llamadas</string>
   <string name="app_ops_summaries_read_calendar">leer eventos de calendario</string>
   <string name="app_ops_summaries_modify_calendar">añadir o modificar eventos de calendario</string>
-  <string name="app_ops_summaries_wifi_scan">Buscar Wi\u2011Fi</string>
+  <string name="app_ops_summaries_wifi_scan">ver conexiones Wi\u2011Fi</string>
   <string name="app_ops_summaries_notification">publicar notificación</string>
   <string name="app_ops_summaries_cell_scan">ver conexiones de red</string>
   <string name="app_ops_summaries_call_phone">llamar directamente a números de teléfono</string>
@@ -785,12 +790,12 @@ Tocando de forma prolongada cada línea se mostrarán opciones adicionales. Sele
   <string name="app_ops_summaries_media_volume">volumen multimedia</string>
   <string name="app_ops_summaries_alarm_volume">volumen de alarma</string>
   <string name="app_ops_summaries_notification_volume">volumen de notificación</string>
-  <string name="app_ops_summaries_bluetooth_volume">Volumen de Bluetooth</string>
+  <string name="app_ops_summaries_bluetooth_volume">volumen de Bluetooth</string>
   <string name="app_ops_summaries_keep_awake">mantener encendido</string>
   <string name="app_ops_summaries_monitor_location">consultar ubicación aproximada</string>
   <string name="app_ops_summaries_monitor_high_power_location">consultar ubicación precisa</string>
-  <string name="app_ops_summaries_wifi_change">Cambiar Wi\u2011Fi</string>
-  <string name="app_ops_summaries_bluetooth_change">Cambiar Bluetooth</string>
+  <string name="app_ops_summaries_wifi_change">cambiar Wi\u2011Fi</string>
+  <string name="app_ops_summaries_bluetooth_change">cambiar Bluetooth</string>
   <string name="app_ops_summaries_data_change">cambiar la conexión de red</string>
   <string name="app_ops_summaries_alarm_wakeup">despertar el dispositivo</string>
   <string name="app_ops_summaries_send_mms">enviar MMS</string>
@@ -830,7 +835,7 @@ Tocando de forma prolongada cada línea se mostrarán opciones adicionales. Sele
   <string name="app_ops_labels_notification_volume">Volumen de notificación</string>
   <string name="app_ops_labels_bluetooth_volume">Volumen de Bluetooth</string>
   <string name="app_ops_labels_keep_awake">Mantener encendido</string>
-  <string name="app_ops_labels_wifi_change">Cambiar Wi\u2011Fi</string>
+  <string name="app_ops_labels_wifi_change">Controlar Wi\u2011Fi</string>
   <string name="app_ops_labels_bluetooth_change">Controlar Bluetooth</string>
   <string name="app_ops_labels_data_change">Controlar conexión de red</string>
   <string name="app_ops_labels_alarm_wakeup">Despertar</string>
@@ -871,11 +876,10 @@ Tocando de forma prolongada cada línea se mostrarán opciones adicionales. Sele
   <string name="voice_wakeup_retrain_title">Entrenar tu voz</string>
   <string name="voice_wakeup_activity_title">Actividad para lanzar</string>
   <string name="voice_wakeup_default_activity">Google Now</string>
-  <string name="sub_no_sim">Sin tarjeta SIM</string>
   <string name="multi_sim_settings_title">Tarjetas SIM</string>
   <string name="multi_sim_settings_group_summary">Selección de SIM por defecto</string>
   <string name="voice_title">Llamadas de voz</string>
-  <string name="data_title">Llamadas de datos</string>
+  <string name="data_title">Conexión de datos</string>
   <string name="sms_title">Envío de SMS</string>
   <string name="priority_sub_title">Prioridad de suscripción</string>
   <string name="bluetooth_accept_all_files">Aceptar todos los tipos de archivo</string>
@@ -965,8 +969,7 @@ Tocando de forma prolongada cada línea se mostrarán opciones adicionales. Sele
   <string name="set_sms_error">Error en el establecimiento de la suscripción para SMS. Suscripción inactiva.</string>
   <string name="set_voice_error">Error en el establecimiento de la suscripción para llamadas de voz. Suscripción inactiva.</string>
   <string name="set_priority_sub_error">Error en el establecimiento de la prioridad de suscripción. Suscripción inactiva.</string>
-  <string name="prompt">Preguntar</string>
-  <string name="prompt_user">Preguntar al usuario</string>
+  <string name="prompt">Preguntar siempre</string>
   <string name="maximum_head_level">Cabeza: %1$s W/kg</string>
   <string name="maximum_body_level">Cuerpo: %1$s W/kg</string>
   <string name="tune_away_title">TuneAway</string>

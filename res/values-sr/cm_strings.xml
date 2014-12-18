@@ -82,6 +82,8 @@
   <string name="connection_state_disabled">Онемогућено</string>
   <string name="connection_state_enabled">Омогућено</string>
   <string name="volume_override_summary">Постављено за %1$s/%2$s</string>
+  <string name="volume_override_summary_no_override">Немој прекорачити</string>
+  <string name="profile_volume_override_checkbox_label">Прекорачи јачину</string>
   <string name="profile_profiles_manage">Профили</string>
   <string name="profile_profile_manage">Управљање профилом</string>
   <string name="profile_appgroups_manage">Групе апликација</string>
@@ -127,9 +129,10 @@
   <string name="link_volume_mutes">Режим тишине утиче на обавештења</string>
   <string name="volume_keys_control_ring_stream">Дугмићи за јачину звука контролишу јачину звона</string>
   <string name="ring_mode_title">Режим звона</string>
-  <string name="ring_mode_normal">Нормално</string>
+  <string name="ring_mode_normal">Звоно</string>
   <string name="ring_mode_vibrate">Вибрација</string>
   <string name="ring_mode_mute">Нечујно</string>
+  <string name="ring_mode_unchanged">Неизмењено</string>
   <string name="volume_overlay_title">Стил звучног панела</string>
   <string name="volume_overlay_single">Појединачан</string>
   <string name="volume_overlay_expandable">Прошириви</string>
@@ -215,7 +218,6 @@
   <string name="lockscreen_maximize_widgets_title">Повећај виџете</string>
   <string name="lockscreen_maximize_widgets_summary">Прошири виџете када је екран укључен</string>
   <string name="lockscreen_enable_camera_title">Виџет камере</string>
-  <string name="lockscreen_enable_application_widget_title">Апликациони распоред додатак</string>
   <string name="safe_headset_volume_title">Сигурна јачина тона на слушалицама</string>
   <string name="safe_headset_volume_restore_title">Смањи јачину слушалица по повезивању</string>
   <string name="cyanogenmod_waiver_title">Одрицање</string>
@@ -265,6 +267,7 @@
   <string name="title_tile_volume">Јачина звука</string>
   <string name="title_tile_expanded_desktop">Проширен екран</string>
   <string name="title_tile_network_adb">ADB преко мреже</string>
+  <string name="title_tile_themes">Теме</string>
   <string name="title_dynamic_tiles">Динамичне плочице</string>
   <string name="dynamic_tiles_note_title">Напомена</string>
   <string name="dynamic_tiles_note_summary">Динамичне плочице ће се једино појавити ако буду изазване догађајем система</string>
@@ -273,7 +276,7 @@
   <string name="title_dynamic_dock_battery">Бaза батерије</string>
   <string name="title_dynamic_equalizer">Еквилајзер</string>
   <string name="title_dynamic_ime">Селектор методе уноса</string>
-  <string name="title_dynamic_usbtether">USB дељење конекције</string>
+  <string name="title_dynamic_usbtether">USB привезивање</string>
   <string name="title_dynamic_wifi">Снимање екрана</string>
   <string name="title_general">Опште</string>
   <string name="title_quick_pulldown">Брзи падајући панел</string>
@@ -294,9 +297,11 @@
   <string name="cm_sound_mode_sound">Звук</string>
   <string name="cm_sound_mode_soundVibrate">Звук &amp; Вибрација</string>
   <string name="pref_location_mode_title">Режими локације</string>
+  <string name="pref_location_mode_summary">Поништите све режиме на подразумевано понашање</string>
+  <string name="cm_location_mode_off">Локација искључено</string>
   <string name="cm_location_mode_battery_saving">Уштеда батерије</string>
   <string name="cm_location_mode_device_only">Само уређај</string>
-  <string name="cm_location_mode_high_accuracy">Висока прецизност</string>
+  <string name="cm_location_mode_high_accuracy">Велика прецизност</string>
   <string name="tiles_reset_title">Ресетуј</string>
   <string name="tiles_reset_message">Врати подразумевани приказ плочица и распоред?</string>
   <string name="auto_brightness_setup_title">Аутоматска осветљеност</string>
@@ -418,7 +423,7 @@
   <string name="soundpack_settings_title">Пакети звукова</string>
   <string name="performance_settings_title">Перформансе</string>
   <string name="performance_settings_warning_title">Настави са опрезом</string>
-  <string name="performance_settings_warning">Ова подешавања су експериментална и примена било које промене има потенцијал да изазове нестабилност, падове, губитак података или грешке у раду хардвера.\n\n Захтевамо да не подносиш извештаје о грешкама ако било које  подешавање измениш из својих подразумеваних вредности.</string>
+  <string name="performance_settings_warning">Ова подешавања су експериментална и примена било које промене има потенцијал да изазове нестабилност, падове, губитак података или грешке у раду хардвера.\n\nЗахтевамо да не подносиш извештаје о грешкама ако било које  подешавање измениш из својих подразумеваних вредности.</string>
   <string name="performance_set_on_boot">Постави при покретању</string>
   <string name="performance_set_on_boot_summary">Врати примењена подешавања при покретању</string>
   <string name="processor_title">Процесор</string>
@@ -608,7 +613,7 @@
   <string name="navigation_bar_menu_locked">Закључано</string>
   <string name="navigation_bar_arrow_keys_title">Стрелице при куцању</string>
   <string name="navigation_bar_arrow_keys_summary">Прикажи лево и десно дугме курсора при куцању</string>
-  <string name="navigation_bar_recents_title">Скорашње акције дугог додира</string>
+  <string name="navigation_bar_recents_title">Недавне акције дугог додира</string>
   <string name="navigation_ring_title">Пречице за брзо покретање</string>
   <string name="navring_target_reset_message">Избриши све пречице на навигационој траци и врати на подразумевано?</string>
   <string name="navring_target_reset">Пречице на навигационој траци ресетоване на подразумевано</string>
@@ -877,11 +882,10 @@
   <string name="voice_wakeup_retrain_title">Утренирај свој глас</string>
   <string name="voice_wakeup_activity_title">Активност за покретање</string>
   <string name="voice_wakeup_default_activity">Google Тренутно</string>
-  <string name="sub_no_sim">Нема SIM картице</string>
   <string name="multi_sim_settings_title">SIM картице</string>
   <string name="multi_sim_settings_group_summary">Избор подразумеваног SIM-а</string>
   <string name="voice_title">Говорни позиви</string>
-  <string name="data_title">Подаци о позивима</string>
+  <string name="data_title">Веза података</string>
   <string name="sms_title">Слање SMS-а</string>
   <string name="priority_sub_title">Приоритетна претплата</string>
   <string name="bluetooth_accept_all_files">Прихвати све типове фајлова</string>
@@ -973,8 +977,7 @@
   <string name="set_sms_error">Грешка при подешавању SMS претплате. Претплата није активна.</string>
   <string name="set_voice_error">Грешка приликом подешавања говорне претплате. Претплата није активна.</string>
   <string name="set_priority_sub_error">Грешка при постављању приоритета претплате. Претплата није активна.</string>
-  <string name="prompt">Питај</string>
-  <string name="prompt_user">Питај корисника</string>
+  <string name="prompt">Увек питај</string>
   <string name="maximum_head_level">Глава: %1$s W/kg</string>
   <string name="maximum_body_level">Тело: %1$s W/kg</string>
   <string name="tune_away_title">Даљинско подешавање</string>
